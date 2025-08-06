@@ -1,0 +1,28 @@
+package com.gravity.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gravity.model.Student;
+
+@RestController
+@RequestMapping("/student")
+public class StudentMgmtRestController 
+{
+	private List<Student> studentList = new ArrayList<>();
+	@GetMapping("/check")
+	public String chech()
+	{
+		return "Good to go!";
+	}
+	
+	@GetMapping
+	public List<Student> getStudentList()
+	{
+		
+	}
+}

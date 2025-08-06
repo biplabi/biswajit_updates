@@ -1,0 +1,6 @@
+#Mon Aug 04 13:40:31 IST 2025
+__DEFAULT__=false
+expression=eclipse marketplace
+org.eclipse.help.ui.localSearch.master=true
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.sdk.Google.master=true

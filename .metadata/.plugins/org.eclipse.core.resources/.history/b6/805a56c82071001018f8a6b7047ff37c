@@ -1,0 +1,15 @@
+package com.gravity.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "product")
+@Data
+public class Product 
+{
+	private int id;
+	private int name;
+	private int price;
+}

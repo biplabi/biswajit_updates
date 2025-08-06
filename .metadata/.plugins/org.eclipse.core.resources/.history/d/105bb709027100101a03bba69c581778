@@ -1,0 +1,19 @@
+package com.gravity.repository;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.gravity.model.Product;
+
+@Repository
+public class ProductRepository 
+{
+	private List<Product> productList;
+	
+	public String addProduct(Product p)
+	{
+		productList.add(p);
+		
+	}
+}

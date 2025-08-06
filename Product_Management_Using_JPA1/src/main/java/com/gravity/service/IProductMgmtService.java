@@ -1,0 +1,17 @@
+package com.gravity.service;
+
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+
+import com.gravity.model.Product;
+
+public interface IProductMgmtService 
+{
+	String registerProduct(Product p);
+	List<Product> getAllProducts();
+	String updateProduct(int id, Product p);
+	String deleteProduct(int id);
+	Page<Product> getAllProductsByPage(int page, int pageSize, String sortField, String direction);
+	Product getProductById(int id);
+}

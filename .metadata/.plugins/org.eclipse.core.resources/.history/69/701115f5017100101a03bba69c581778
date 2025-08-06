@@ -1,0 +1,12 @@
+package com.gravity.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ProductRepository 
+{
+	public String addProduct(Product p)
+	{
+		
+	}
+}

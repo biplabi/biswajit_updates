@@ -1,0 +1,21 @@
+package com.gravity.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gravity.model.Product;
+import com.gravity.repository.ProductRepository;
+
+@Service
+public class ProductService 
+{
+	@Autowired
+	private ProductRepository productRepo;
+	
+	public String addProduct(Product p)
+	{
+		Product pr = this.productRepo.save(p);
+		
+		return "The product is added with id: " + pr.getId();
+	}
+}

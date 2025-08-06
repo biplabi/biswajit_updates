@@ -1,0 +1,46 @@
+package com.gravity.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gravity.model.Product;
+import com.gravity.repository.ProductRepository;
+
+@Service
+public class ProductService 
+{
+	private ProductRepository productRepo;
+	
+	@Autowired
+	public ProductService(ProductRepository productRepo)
+	{
+		this.productRepo = productRepo;
+	}
+	
+	public String registerProduct(Product p)
+	{
+		return this.productRepo.addProduct(p);
+	}
+	
+	public List<Product> getAllProducts()
+	{
+		return this.productRepo.getAllProducts();
+	}
+	
+	public Product getProductById(int id)
+	{
+		return this.productRepo.getProductById(id);
+	}
+	
+	public String updateProduct(int id, Product p)
+	{
+		return this.productRepo.updateProduct(id, p);
+	}
+	
+	public String deleteProduct(int id)
+	{
+		return this.productRepo.deleteProduct(id);
+	}
+}

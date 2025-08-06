@@ -1,0 +1,8 @@
+package com.gravity.service;
+
+import com.gravity.model.Product;
+
+public interface IProductMgmtService 
+{
+	String registerProduct(Product p);
+}

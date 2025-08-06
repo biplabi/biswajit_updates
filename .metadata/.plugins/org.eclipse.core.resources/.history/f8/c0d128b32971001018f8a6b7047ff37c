@@ -1,0 +1,12 @@
+package com.gravity.service;
+
+import java.util.List;
+
+import com.gravity.model.Product;
+
+public interface IProductMgmtService 
+{
+	String registerProduct(Product p);
+	List<Product> getAllProducts();
+	String updateProduct(Product p);
+}

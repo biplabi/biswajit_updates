@@ -1,0 +1,80 @@
+package com.gravity.controller;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gravity.dto.ProductDTO;
+import com.gravity.mapper.ProductStrutMapper;
+import com.gravity.model.Product;
+import com.gravity.service.IProductMgmtService;
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/product")
+public class ProductMgmtController 
+{
+	@Autowired
+	private IProductMgmtService service;
+	
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	@Autowired
+	private ProductStrutMapper strutMapper;
+	
+	@PostMapping("/add")
+	public ResponseEntity<String> addProduct(@RequestBody @Valid ProductDTO pdto)
+	{
+//		Product p = ProductMapper.toProduct(pdto);
+		Product p = modelMapper.map(pdto, Product.class);
+		return new ResponseEntity<>(service.registerProduct(p), HttpStatus.OK);
+	}
+	
+	@GetMapping("/show")
+	public List<Product> showAllProducts()
+	{
+		return this.service.getAllProducts();
+	}
+	
+	@PutMapping("/{id}")
+	public String updateProduct(@PathVariable int id, @RequestBody @Valid ProductDTO p)
+	{
+		Product pr = new Product();
+		pr.setName(p.getName());
+		pr.setPrice(p.getPrice());
+		return this.service.updateProduct(id, pr);
+	}
+	
+	@DeleteMapping("/{id}")
+	public String deleteProduct(@PathVariable("id") int id)
+	{
+		return this.service.deleteProduct(id);
+	}
+	
+	@GetMapping("/page")
+	public Page<Product> getAllProductsByPage(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int pageSize, @RequestParam(defaultValue = "id") String pageField, @RequestParam(defaultValue = "asc") String direction)
+	{
+		return this.service.getAllProductsByPage(page, pageSize, pageField, direction);
+	}
+	
+	@GetMapping("/{id}")
+	public Product getProductById(@PathVariable("id") int id)
+	{
+		return this.service.getProductById(id);
+	}
+}

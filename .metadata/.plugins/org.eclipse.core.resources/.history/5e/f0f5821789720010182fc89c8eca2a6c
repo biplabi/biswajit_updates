@@ -1,0 +1,24 @@
+package com.gravity.mapper;
+
+import com.gravity.dto.ProductDTO;
+import com.gravity.model.Product;
+
+public class ProductMapper 
+{
+	public static ProductDTO toProductDTO(Product p)
+	{
+		ProductDTO pdto = new ProductDTO();
+		pdto.setName(p.getName());
+		pdto.setPrice(p.getPrice());
+		
+		return pdto;
+	}
+	
+	public static Product toProduct(ProductDTO pdto)
+	{
+		Product p = new Product();
+		
+		p.setName(pdto.getName());
+		p.setPrice(pdto.getName());
+	}
+}

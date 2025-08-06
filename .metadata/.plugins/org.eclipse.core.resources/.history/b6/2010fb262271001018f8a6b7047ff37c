@@ -1,0 +1,20 @@
+package com.gravity.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.gravity.model.Product;
+import com.gravity.repository.ProductRepository;
+
+public class ProductMgmtServiceImpl implements IProductMgmtService
+{
+	@Autowired
+	private ProductRepository productRepo;
+	
+	@Override
+	public String registerProduct(Product p)
+	{
+		Product pr = this.productRepo.save(p);
+		
+		
+	}
+}

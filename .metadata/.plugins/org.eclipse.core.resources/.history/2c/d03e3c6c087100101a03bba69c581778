@@ -1,0 +1,21 @@
+package com.gravity.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.gravity.model.Product;
+
+@Repository
+public class ProductRepository 
+{
+	private List<Product> productList = new ArrayList<>();
+	
+	public String addProduct(Product p)
+	{
+		productList.add(p);
+		
+		return "Product is added with id: " + p.getId();
+	}
+}

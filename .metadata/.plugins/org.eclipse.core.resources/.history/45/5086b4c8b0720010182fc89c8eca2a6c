@@ -1,0 +1,19 @@
+package com.gravity.service;
+
+import org.springframework.stereotype.Service;
+
+import com.gravity.model.OrderItems;
+import com.gravity.repository.OrderItemsRepository;
+
+@Service
+public class OrderItemsService 
+{
+	private OrderItemsRepository orderItemsRepo;
+	
+	public String addItems(OrderItems oi)
+	{
+		OrderItems oitem = this.orderItemsRepo.save(oi);
+		
+		return "Order item is added with id: " + oitem.getId();
+	}
+}

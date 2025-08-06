@@ -1,0 +1,13 @@
+package com.gravity.mapper;
+
+import org.mapstruct.Mapper;
+
+import com.gravity.dto.ProductDTO;
+import com.gravity.model.Product;
+
+@Mapper(componentModel = "spring")
+public interface ProductStrutMapper 
+{
+	Product toProduct(ProductDTO pdto);
+	ProductDTO toProductDTO(Product p);
+}

@@ -1,0 +1,47 @@
+package com.gravity.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gravity.model.Customer;
+import com.gravity.model.Order;
+import com.gravity.repository.OrderRepository;
+
+@Service
+public class OrderService 
+{
+	@Autowired
+	private OrderRepository orderRepo;
+	
+	public String saveOrder(Order o)
+	{
+		Order ord = this.orderRepo.save(o);
+		
+		return "Order is saved with id: " + ord.getId();
+	}
+	
+	public List<Order> getAllOrders()
+	{
+		return this.orderRepo.findAll();
+	}
+	
+	public String updateOrder(int id, Order o)
+	{
+		Order ord = this.orderRepo.getById(id);
+		
+		ord.setCustomerId(o.getCustomerId());
+		ord.setOrderDate(o.getOrderDate());
+		
+		this.orderRepo.save(ord);
+		
+		return id + " order is updated.";
+	}
+	
+	public String deleteOrder(int id)
+	{
+		this.orderRepo.deleteById(id);
+		return 
+	}
+}

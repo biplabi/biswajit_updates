@@ -1,0 +1,10 @@
+package com.gravity.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.gravity.model.OrderItems;
+
+public interface OrderItemsRepository extends JpaRepository<OrderItems, Integer>
+{
+
+}

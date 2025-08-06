@@ -1,0 +1,15 @@
+package com.gravity.dto;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Data
+public class ProductDTO 
+{
+	@NotNull(message = "Name can not be null!")
+	@Size(min = 1, max = 25, message = "please enter the name having length b/w 5 to 25")
+	private String name;
+	
+	private double price;
+}

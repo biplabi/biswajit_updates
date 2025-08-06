@@ -1,0 +1,5 @@
+package com.gravity.dto;
+
+public class ProductDTO {
+
+}
