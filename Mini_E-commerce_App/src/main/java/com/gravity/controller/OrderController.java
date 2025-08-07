@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gravity.model.Customer;
+import com.gravity.dto.OrderRequest;
 import com.gravity.model.Order;
+import com.gravity.projection.OrderInfo;
 import com.gravity.service.OrderService;
 
 @RestController
@@ -45,5 +46,24 @@ public class OrderController
 	public String deleteOrder(@PathVariable("id")int id)
 	{
 		return this.service.deleteOrder(id);
+	}
+	
+	@GetMapping("/orderInfo")
+	public List<OrderInfo> getOrderInfo()
+	{
+		return this.service.getOrderInfo();
+	}
+	
+	@GetMapping("/oderCount/{count}")
+	public List<String> getCustomerByOrder(@PathVariable("count") int count)
+	{
+		return this.service.getCustomerByOrder();
+	}
+	
+	@PostMapping("/place-order")
+	public String placeOrder(@RequestBody OrderRequest request)
+	{
+		this.service.placeOrderWithItems(request.getOrder(), request.getOrderItems());
+		return "The order placed successfully!";
 	}
 }

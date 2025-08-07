@@ -45,4 +45,10 @@ public class ProductController
 	{
 		return this.service.deleteProduct(id);
 	}
+	
+	@GetMapping("/productSales")
+	public List<Object[]> getProductSales()
+	{
+		return this.service.getProductSales();
+	}
 }

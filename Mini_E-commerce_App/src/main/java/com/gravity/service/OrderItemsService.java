@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gravity.model.OrderItems;
+import com.gravity.projection.CustomerSpend;
 import com.gravity.repository.OrderItemsRepository;
 
 @Service
@@ -44,5 +45,10 @@ public class OrderItemsService
 		this.orderItemsRepo.deleteById(id);
 		
 		return id + " orderItems is deleted.";
+	}
+	
+	public List<CustomerSpend> getCustomerSpend()
+	{
+		return this.orderItemsRepo.getCustomerSpend();
 	}
 }

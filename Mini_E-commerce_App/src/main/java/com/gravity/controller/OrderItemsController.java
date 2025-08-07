@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gravity.model.OrderItems;
+import com.gravity.projection.CustomerSpend;
 import com.gravity.service.OrderItemsService;
 
 @RestController
@@ -44,5 +45,11 @@ public class OrderItemsController
 	public String deleteOrderItems(@PathVariable("id")int id)
 	{
 		return this.service.deleteOrderItems(id);
+	}
+	
+	@GetMapping("/customerSpend")
+	public List<CustomerSpend> getCustomerSpend()
+	{
+		return this.service.getCustomerSpend();
 	}
 }

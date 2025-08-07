@@ -44,4 +44,9 @@ public class ProductService
 		
 		return id + " prodcut is deleted.";
 	}
+	
+	public List<Object[]> getProductSales()
+	{
+		return this.productRepo.getProductSales();
+	}
 }
