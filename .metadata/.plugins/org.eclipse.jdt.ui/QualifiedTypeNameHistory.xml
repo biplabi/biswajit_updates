@@ -17,7 +17,9 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
-    <fullyQualifiedTypeName name="com.gravity.model.Order"/>
     <fullyQualifiedTypeName name="com.gravity.repository.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.gravity.dto.CustomerSpendDTO"/>
+    <fullyQualifiedTypeName name="com.gravity.model.Order"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
 </qualifiedTypeNameHistroy>
