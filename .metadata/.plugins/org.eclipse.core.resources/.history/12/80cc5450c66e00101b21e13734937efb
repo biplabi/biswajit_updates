@@ -1,5 +1,0 @@
-package com.gravity.exceptions;
-
-public class UserNotFoundException {
-
-}
